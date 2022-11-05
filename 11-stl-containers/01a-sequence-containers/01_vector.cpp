@@ -3,6 +3,25 @@
 #include <string>
 using namespace std;
 
+/* 
+ * The elements are stored contiguously, which means that elements can be accessed
+ * not only through iterators, but also using offsets to regular pointers to elements.
+ * 
+ * The storage of the vector is handled automatically, being expanded as needed.
+ * Vectors usually occupy more space than static arrays, because more memory is allocated to handle future growth.
+ * 
+ * The total amount of allocated memory can be queried using capacity() function.
+ * Extra memory can be returned to the system via a call to shrink_to_fit(). (since C++11)
+ * 
+ * Reallocations are usually costly operations in terms of performance.
+ * The reserve() function can be used to eliminate reallocations if the number of elements is known beforehand.
+ * 
+ * Complexity/efficiency
+ * Random access - constant O(1)
+ * Insertion or removal of elements at the end - amortized constant O(1)
+ * Insertion or removal of elements - linear in the distance to the end of the vector O(n)
+ */
+
 // print elements of vector
 template<typename T>
 void printv(vector<T> &v) {
