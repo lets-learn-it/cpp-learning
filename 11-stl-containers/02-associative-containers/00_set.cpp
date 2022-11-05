@@ -24,7 +24,7 @@ int main() {
   print_set("set1", set1);
 
   set1.insert("ten");
-  set1.insert("four");
+  set1.insert("four"); // will be single "four" present
   print_set("inserted ten & four", set1);
 
   // find erase element three
