@@ -17,7 +17,7 @@ using namespace std;
 
 template<typename T>
 void print_pq(const char *s, T pq) {
-  cout << "s" << ": ";
+  cout << s << ": ";
   while(!pq.empty()) {
     cout << pq.top() << " ";
     pq.pop();
@@ -41,9 +41,21 @@ int main() {
   priority_queue minq2(v1.begin(), v1.end(), greater<int>());
   print_pq("min q2", minq2);
 
+  // using custom function 
   struct {
-    bool operator() { }
-  }
+    bool operator() (const int l, const int r) const { return l > r; }
+  } customLess;  
+  priority_queue minq3(v1.begin(), v1.end(), customLess);
+  print_pq("min q3", minq3);
+
+  // using lambda function
+  auto cmp = [](int left, int right) { return left > right; };
+  // decltype returns type of cmp
+  priority_queue<int, vector<int>, decltype(cmp)> minq4(cmp);
+  for(int x:v1)
+    minq4.push(x);
+  print_pq("min q4", minq4);
+
   return 0;
 }
 
