@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 
-void increment(int &a);
-void increment(int *a);
+void increment(int &);
+void increment(int *);
 
 int main() {
   int a = 10;
@@ -21,9 +21,11 @@ int main() {
 }
 
 void increment(int &a) {
+  cout << "Inside increment(int &a)\n";
   a = a + 1;
 }
 
 void increment(int *a) {
+  cout << "Inside increment(int *a)\n";
   *a = *a + 1;
 }
