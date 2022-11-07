@@ -1,0 +1,41 @@
+{
+	// Place your cpp-learning workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"cp-cpp": {
+		"scope": "cpp",
+		"prefix": "cpcpp",
+		"body": [
+			"#include<bits/stdc++.h>",
+      "using namespace std;",
+      "",
+      "#define endl      \"\\n\"",
+      "#define ld        long double",
+      "#define lli       long long int",
+      "#define max_heap  priority_queue <int>",
+      "#define min_heap  priority_queue <int, vector<int>, greater<int>>",
+      "#define bits(n)   bitset<n>",
+      "",
+      "#define printa(x,n) for(int i=0;i<n;i++) cerr<<x[i]<<\" \"; cerr<<endl;",
+      "#define DEBUG(x) cerr<<\">>> \"<<#x<<\" : \"<<x<<endl;",
+      "",
+      "int main(int argc, char const *argv[]) {",
+      "  ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);",
+      "  freopen(\"input.txt\", \"r\", stdin);",
+      "  freopen(\"output.gen.txt\", \"w\", stdout);",
+      "  clock_t start = clock();",
+      "",
+      "  ${1}",
+      "",
+      "  clock_t end = clock();",
+      "  cerr << \"Time: \" << ((double)(clock() - end) / CLOCKS_PER_SEC) << endl;",
+      "  return 0;",
+      "}"
+		],
+		"description": "competative programming template for cpp"
+	}
+}
