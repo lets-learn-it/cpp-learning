@@ -52,7 +52,8 @@ int main(int argc, char const *argv[]) {
     max_fd =  mastersockfd;
 
     for(int i=0;i < activeconnections;i++) {
-      FD_SET(connfds[i], &readfds);
+      if(connfds[i] != 0)
+        FD_SET(connfds[i], &readfds);
       if(connfds[i] > max_fd)
         max_fd = connfds[i];
     }
@@ -61,6 +62,7 @@ int main(int argc, char const *argv[]) {
 
     if ((readyfds < 0) && (errno!=EINTR)) {
       printf("select error");
+
     }
 
     if(FD_ISSET(mastersockfd, &readfds)) {
@@ -68,22 +70,35 @@ int main(int argc, char const *argv[]) {
         perror("accept error...");
         exit(1);
       }
-      activeconnections++;
 
-      cout << "New connection \n";
+      cout << "New connection from " << inet_ntoa(clientIPs[activeconnections].sin_addr) << "\n";
+      activeconnections++;
     }
 
     for(int i=0;i < activeconnections; i++) {
-      if(FD_ISSET(connfds[i], &readfds)) {
+      // check if connection is active and it is ready to read
+      if(connfds[i] != 0 && FD_ISSET(connfds[i], &readfds)) {
         // clear buffer
         memset(inBuffer[i], 0, 1024);
         memset(outBuffer[i], 0, 1024);
 
-        read(connfds[i], inBuffer[i], 1024);
-        cout << inBuffer[i] << endl;
+        // read returns 0 if connection closed normally
+        // and -1 if error
+        if(read(connfds[i], inBuffer[i], 1024) <= 0) {
+          cerr << strerror(errno) << " (code: " << errno << ")\n";
+          strncpy(outBuffer[i], inet_ntoa(clientIPs[i].sin_addr), INET_ADDRSTRLEN);
+          cerr << "Host " << outBuffer[i] << " Disconnected\n";
+          close(connfds[i]);
+          connfds[i] = 0;
+          continue;
+        }
 
         // get client ip
-        inet_ntop( AF_INET, &clientIPs[i], outBuffer[i], INET_ADDRSTRLEN );
+        strncpy(outBuffer[i], inet_ntoa(clientIPs[i].sin_addr), INET_ADDRSTRLEN);
+
+        cout << outBuffer[i] << ": " << inBuffer[i] << endl;
+
+        strcat(outBuffer[i], " : ");
         strcat(outBuffer[i], inBuffer[i]);
 
         write(connfds[i], outBuffer[i], strlen(outBuffer[i]));
