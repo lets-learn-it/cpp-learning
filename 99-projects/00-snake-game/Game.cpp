@@ -1,6 +1,7 @@
 #include "Game.h"
 #include <algorithm>
 #include <ctime>
+#include <thread>
 
 unsigned int random_between(unsigned int a, unsigned int b) {
   return a + (rand() % (b-a));
@@ -12,7 +13,8 @@ Game::Game(unsigned int width, unsigned int height) {
   score = 0;
   std::srand(static_cast<unsigned>(std::time(nullptr)));
   food = std::make_pair(random_between(1, width-1), random_between(1, height-1));
-  boardBuff = new char[(width + 2) * height];
+  boardBuff = new char[(width + 2) * (height+2)];
+  over = false;
 }
 
 Game::~Game() {
@@ -47,9 +49,10 @@ void Game::draw() {
   snake->draw(boardBuff, board.first, board.second);
   
   std::cout << boardBuff << std::endl;
+  std::cout << "<< q: Exit, w: Up, a: Left, s: Down, d: Right, e: Stop >>\n";
 }
 
-void Game::input() {
+bool Game::input() {
   char ch;
   std::cin >> ch;
   switch (ch) {
@@ -65,13 +68,27 @@ void Game::input() {
   case 'd':
     snake->change_direction(RIGHT);
     break;
-  default:
+  case 'e':
+    snake->change_direction(STOP);
+    break;
+  case 'q':
+    over = true;
     break;
   }
+  return over;
 }
 
-void Game::logic() {
-  if (snake->move_and_eat(food)) {
+bool Game::logic() {
+  SnakePosition snakePosition = snake->move_and_eat(food);
+  std::pair<unsigned int, unsigned int> head = snakePosition.second;
+  if (snakePosition.first == ATE) {
     food = std::make_pair(random_between(1, board.first-1), random_between(1, board.second-1));
   }
+
+  draw();
+
+  // check for collision
+  if (head.first == 0 || head.second == 0 || head.first == board.first - 1 || head.second == board.second - 1)
+    over = true;
+  return over;
 }

@@ -16,19 +16,17 @@ int main() {
 
   std::thread thr([&game]() {
     while(true) {
-      std::cerr << "Hi";
-      game.input();
-      std::cerr << "Hi";
-      std::this_thread::sleep_for(std::chrono::milliseconds(100));
+      if (game.input()) break;
+      // std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
   });
 
   while(true) {
-    game.draw();
-    game.logic();
-    std::cerr << "Hello";
+    if (game.logic()) break;
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
   }
+
+  thr.join();
 
   tcsetattr(STDIN_FILENO, TCSANOW, &oldSettings);
   return 0;

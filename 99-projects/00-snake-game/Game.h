@@ -11,14 +11,15 @@ private:
   std::pair<unsigned int, unsigned int> food;
   unsigned int score;
   char *boardBuff;
+  bool over;
   
 public:
   Game(unsigned int width, unsigned int height);
   ~Game();
 
   void draw();
-  void input();
-  void logic();
+  bool input();
+  bool logic();
 };
 
 #endif

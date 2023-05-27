@@ -10,9 +10,15 @@ Snake::Snake(unsigned int headX, unsigned int headY) {
 
 Snake::~Snake() {}
 
-bool Snake::move_and_eat(const std::pair<unsigned int, unsigned int>& food) {
+SnakePosition Snake::move_and_eat(const std::pair<unsigned int, unsigned int>& food) {
   mt.lock();
+
   std::pair<unsigned int, unsigned int> head = snake.front();
+
+  if (direction == STOP) {
+    mt.unlock();
+    return std::make_pair(NONE, head);
+  }
   
   switch (direction) {
   case RIGHT:
@@ -31,16 +37,16 @@ bool Snake::move_and_eat(const std::pair<unsigned int, unsigned int>& food) {
     break;
   }
   
-  std::cout << "(" << head.first << ", " << head.second << "), (" << food.first << ", " << food.second << ")";
+  // std::cout << "(" << head.first << ", " << head.second << "), (" << food.first << ", " << food.second << ")";
   head = snake.front();
   if (head.first != food.first || head.second != food.second) {
     snake.pop_back();
     mt.unlock();
-    return false;
+    return std::make_pair(NONE, head);
   }
-  std::cout << "ate";
+
   mt.unlock();
-  return true;
+  return std::make_pair(ATE, head);
 }
 
 void Snake::change_direction(SnakeDirection d) {
@@ -54,7 +60,9 @@ void Snake::draw(char *boardBuff, unsigned int width, unsigned int height) {
   unsigned int pos = 0;
   for (const auto &pair : snake) {
     pos = (pair.second) * (width+1) + pair.first;
-    boardBuff[pos] = 'O';
+    boardBuff[pos] = 'o';
   }
+  pos = (snake.front().second) * (width+1) + snake.front().first;
+  boardBuff[pos] = 'O';
   mt.unlock();
 }
