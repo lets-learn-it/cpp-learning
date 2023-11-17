@@ -23,7 +23,7 @@ void func(std::unique_ptr<Entity> ptr) {
 
 // passing by reference
 void funcRef(std::unique_ptr<Entity> &ptr) {
-
+  std::cout << "Inside funcRef" << std::endl;
 }
 
 int main(int argc, char const *argv[]) {
