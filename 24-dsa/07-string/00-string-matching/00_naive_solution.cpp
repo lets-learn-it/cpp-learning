@@ -8,7 +8,7 @@ int naive_pattern_matching(string text, string pattern) {
   for (int i=0; i<n-m+1; i++) {
     int k=i;
     for (int j=0; j<m; j++) {
-      if (text[k] != pattern[j]) 
+      if (text[k] != pattern[j])
         break;
       k++;
     }
@@ -28,7 +28,7 @@ int main(int argc, char const *argv[]) {
 
   while(t--) {
     string pattern, text;
-    
+
     getline(cin, text);
     getline(cin, pattern);
 
