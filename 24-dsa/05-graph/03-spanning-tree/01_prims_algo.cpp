@@ -62,7 +62,7 @@ int main(int argc, char const *argv[]) {
   ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
   freopen("input.txt", "r", stdin);
 
-  // edgelist will be good
+  // adjacency list will be good
   int nodes, edges;
   cin >> nodes;
   cin >> edges;
