@@ -2,6 +2,8 @@
 
 class Animal {
 public:
+  // = 0 forces child classes to implement this method
+  // you can create object of Animal
   virtual void run() const = 0;
 };
 
@@ -13,6 +15,8 @@ public:
     this->name = n;
   }
 
+  // override infers this method is overriding a virtual method (not required)
+  // const: method guarantees not to modify the state of the object
   void run() const override {
     std::cout << "Human running: " << this->name << std::endl;
   }
@@ -42,9 +46,3 @@ int main() {
 
   return 0;
 }
-
-
-
-
-
-

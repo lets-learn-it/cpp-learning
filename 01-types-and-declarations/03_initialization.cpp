@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-  /* 
+  /*
    * Initialization on Stack
    */
   int a; // uninitialized
@@ -22,7 +22,7 @@ int main() {
   int g{}; // value initialization
   cout << "Value initialized: " << g << endl;
 
-  /* 
+  /*
    * Initialization on Heap
    */
   char *h1 = new char[8]{};

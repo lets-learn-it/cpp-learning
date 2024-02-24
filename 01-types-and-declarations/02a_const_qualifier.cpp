@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-/* 
+/*
  *
  * const
  * - creates variable that is constant
@@ -53,5 +53,3 @@ int main() {
   print(x);
   return 0;
 }
-
-
