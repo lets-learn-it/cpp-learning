@@ -9,6 +9,9 @@ using namespace std;
  *    the reference’s own address and size are invisible. Since the reference assumes the identity of
  *    the original variable in this way, it is convenient to think of a reference as another name
  *    for the same variable
+ * 3. It is possible to create a pointer to a pointer, but not a pointer to a reference.
+ * 4. A pointer can be assigned nullptr, whereas a reference must be bound to an existing object.
+ * 5. A pointer needs to be dereferenced with * to access the object it points to, whereas a reference can be used directly. A pointer to a class/struct uses -> to access its members whereas a reference uses a .
  *
  */
 
