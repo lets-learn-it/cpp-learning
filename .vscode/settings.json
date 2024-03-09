@@ -86,7 +86,10 @@
     "thread": "cpp",
     "typeindex": "cpp",
     "valarray": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "expected": "cpp",
+    "spanstream": "cpp",
+    "stacktrace": "cpp"
   },
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
@@ -144,5 +147,9 @@
     "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
     "sml": "cd $dir && sml $fileName"
   },
-  "C_Cpp.intelliSenseCacheSize": 1024
+  "C_Cpp.intelliSenseCacheSize": 1024,
+  "C_Cpp.default.cppStandard": "c++23",
+  "C_Cpp.default.includePath": [
+    "/usr/include/c++/12/"
+  ]
 }
