@@ -26,6 +26,13 @@ If an `optional<T>` contains a value, the value is guaranteed to be allocated as
 ## variant
 
 - [https://en.cppreference.com/w/cpp/utility/variant](https://en.cppreference.com/w/cpp/utility/variant)
+- It represent type-safe `union`. Instance of `std::variant` at any given time either holds a value of one of its
+  alternative types, or in case of error - no value.
+- As with unions, if a variant holds a value of some object type `T`, it is put in variant itself. No memory allocated.
+- It is not permitted to hold references, arrays or type `void`.
+- **Disadvantages**:
+  - Types need to be fully defined before they can be used in the variant. Storage size needs to be known.
+  - Using types with vastly different sizes means that your variant will inherently waste a lot of space.
 
 ## expected c++23
 
