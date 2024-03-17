@@ -148,6 +148,7 @@
     "sml": "cd $dir && sml $fileName"
   },
   "C_Cpp.intelliSenseCacheSize": 1024,
+  "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
   "C_Cpp.default.cppStandard": "c++23",
   "C_Cpp.default.includePath": [
     "/usr/include/c++/12/"
