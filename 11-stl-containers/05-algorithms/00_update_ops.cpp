@@ -8,7 +8,11 @@ int main() {
   int arr1[] = {1,2,3,4,5,6};
   std::vector<int> arr2 = {1,2,3,4,5,6};
 
-  printa(arr1, 6);
+  int num = 5;
+
+  std::remove_if(arr2.begin(), arr2.end(), [&num](int &x) { return x == num;});
+
+  printa(arr2, 6);
 
   // square first 3 numbers;
   std::for_each(arr1, arr1+3, [](int &x) { x *= x; });
