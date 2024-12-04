@@ -12,31 +12,34 @@ using namespace std;
 #define printm(x, m, n) for(int i=0;i<m;i++) {for(int j=0;j<n;j++) cerr<<x[i][j]<<" "; cerr<<endl;} cerr<<endl;
 #define DEBUG(x) cerr<<">>> "<<#x<<" : "<<x<<endl;
 
-vector<int> pascal_row(int n) {
-  vector<int> ans(n, 1);
-
-  // go from 1st to 2nd last as
-  // we know 1st and last value is 1
-  for (int i=1; i<n-1; i++) {
-    ans[i] = ans[i-1] * (n - i);
-    ans[i] /= i;
+void bubble_sort(vector<int>& arr) {
+  int n = arr.size();
+  for (int i=0;i<n-1;i++) {
+    for (int j=1;j<n-i;j++) {
+      if (arr[j-1] > arr[j]) swap(arr[j-1], arr[j]);
+    }
   }
-  return ans;
 }
 
 int main(int argc, char const *argv[]) {
   ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-  freopen("02.txt", "r", stdin);
+  freopen("input.txt", "r", stdin);
 
-  int t = 0;
+  int t=0;
   cin >> t;
 
   while(t--) {
-    int n = 0;
+    int n;
     cin >> n;
+    vector<int> arr(n);
 
-    auto row = pascal_row(n);
-    printa(row, row.size());
+    for (int i=0; i<n; i++) {
+      cin >> arr[i];
+    }
+
+    bubble_sort(arr);
+
+    printa(arr, arr.size());
   }
 
   return 0;

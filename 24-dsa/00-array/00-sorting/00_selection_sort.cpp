@@ -35,17 +35,22 @@ int main(int argc, char const *argv[]) {
   freopen("output.gen.txt", "w", stdout);
   clock_t start = clock();
 
-  int n;
-  cin >> n;
-  vector<int> arr(n);
+  int t=0;
+  cin >> t;
 
-  for (int i=0; i<n; i++) {
-    cin >> arr[i];
+  while(t--) {
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+
+    for (int i=0; i<n; i++) {
+      cin >> arr[i];
+    }
+
+    selection_sort(arr);
+
+    printa(arr, arr.size(), cout);
   }
-
-  selection_sort(arr);
-
-  printa(arr, arr.size(), cout);
 
   clock_t end = clock();
   cerr << "Time: " << ((double)(clock() - end) / CLOCKS_PER_SEC) << endl;

@@ -9,35 +9,40 @@ using namespace std;
 #define bits(n)   bitset<n>
 
 #define printa(x,n) for(int i=0;i<n;i++) cerr<<x[i]<<" "; cerr<<endl;
-#define printm(x, m, n) for(int i=0;i<m;i++) {for(int j=0;j<n;j++) cerr<<x[i][j]<<" "; cerr<<endl;} cerr<<endl;
 #define DEBUG(x) cerr<<">>> "<<#x<<" : "<<x<<endl;
 
-vector<int> pascal_row(int n) {
-  vector<int> ans(n, 1);
+int lower_bound(vector<int>& arr, int val) {
+  int n = arr.size();
+  if (arr[0] > val) return -1;
 
-  // go from 1st to 2nd last as
-  // we know 1st and last value is 1
-  for (int i=1; i<n-1; i++) {
-    ans[i] = ans[i-1] * (n - i);
-    ans[i] /= i;
+  int l = 0, r = n - 1;
+
+  while(l <= r) {
+    int mid = l + ((r - l) / 2);
+    if (arr[mid] == val) return val;
+    if (arr[mid] > val) r = mid - 1;
+    else l = mid + 1;
   }
-  return ans;
+  return arr[r];
 }
 
 int main(int argc, char const *argv[]) {
   ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-  freopen("02.txt", "r", stdin);
+  freopen("input.txt", "r", stdin);
 
-  int t = 0;
+  int t;
   cin >> t;
 
   while(t--) {
-    int n = 0;
-    cin >> n;
+    int n, x;
+    cin >> n >> x;
+    vector<int> arr(n);
 
-    auto row = pascal_row(n);
-    printa(row, row.size());
+    for (int i=0;i<n;i++) {
+      cin >> arr[i];
+    }
+
+    cout << lower_bound(arr, x) << endl;
   }
-
   return 0;
 }
