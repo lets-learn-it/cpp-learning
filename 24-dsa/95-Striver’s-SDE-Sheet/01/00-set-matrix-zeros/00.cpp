@@ -9,7 +9,7 @@ using namespace std;
 #define bits(n)   bitset<n>
 
 #define printa(x,n) for(int i=0;i<n;i++) cerr<<x[i]<<" "; cerr<<endl;
-#define printm(x, m, n) for(int i=0;i<m;i++) {for(int j=0;j<n;j++) cerr<<x[i][j]<<" "; cerr<<endl;}cerr<<endl;
+#define printm(x,m,n) cerr<<">>> "<<#x<<" {\n";for(int i=0;i<m;i++){cerr<<"\t{ ";for(int j=0;j<n;j++)cerr<<x[i][j]<<" ";cerr<<"}\n";}cerr<<"    }\n"
 #define DEBUG(x) cerr<<">>> "<<#x<<" : "<<x<<endl;
 
 void setZeroes(vector<vector<int>>& matrix) {
