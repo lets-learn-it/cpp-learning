@@ -22,6 +22,6 @@ int main(int argc, char const *argv[]) {
     cnt++;
   }
   printf("Total set bits in (%b): %d\n", n, cnt);
-  
+
   return 0;
 }
