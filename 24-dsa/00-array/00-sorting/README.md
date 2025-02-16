@@ -88,7 +88,7 @@ void bubble_sort(int *arr, int n) {
 
   for(int i=0;i<n-1;i++) {
     swapped = false;
-    
+
     for(int j=0;j<n-i-1;j++){
       if(arr[j] > arr[j+1]){
         temp = arr[j];
@@ -98,7 +98,7 @@ void bubble_sort(int *arr, int n) {
       }
     }
 
-    if(!swapped) 
+    if(!swapped)
       break;
   }
 }
@@ -106,7 +106,7 @@ void bubble_sort(int *arr, int n) {
 
 ## Insertion Sort
 
-> The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part. 
+> The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part.
 
 - Time Complexity: $O(n^2)$
 - Auxiliary Space: $O(1)$
@@ -143,3 +143,5 @@ void insertion_sort(int *arr, int n) {
 ## Merge Sort
 
 >  It divides the input array into two halves, calls itself for the two halves, and then merges the two sorted halves. The merge() function is used for merging two halves. The `merge(arr, l, m, r)` is a key process that assumes that arr[l..m] and arr[m+1..r] are sorted and merges the two sorted sub-arrays into one.
+
+- follows `divide and conquer`
