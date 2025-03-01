@@ -40,14 +40,14 @@ fib(1) fib(0)
 ```cpp
 int lookup[1000] = {0};
 
-int fib(int n) { 
-  if (lookup[n] == 0) { 
-    if (n <= 1) 
-      lookup[n] = n; 
+int fib(int n) {
+  if (lookup[n] == 0) {
+    if (n <= 1)
+      lookup[n] = n;
     else
-      lookup[n] = fib(n - 1) + fib(n - 2); 
-  } 
-  return lookup[n]; 
+      lookup[n] = fib(n - 1) + fib(n - 2);
+  }
+  return lookup[n];
 }
 ```
 
@@ -57,10 +57,10 @@ int fib(int n) {
 int fib(int n) {
   int f[n+1];
   int i;
-  f[0] = 0;   f[1] = 1; 
+  f[0] = 0;   f[1] = 1;
   for (i = 2; i <= n; i++)
     f[i] = f[i-1] + f[i-2];
-  
+
   return f[n];
 }
 ```

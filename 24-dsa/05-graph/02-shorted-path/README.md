@@ -8,6 +8,7 @@
 - It constructs array `distance` that will contain the distances from node `x` to all nodes.
 - **graph in edge list form will be helpful**, because we will be traversing over edges exactly `n-1` times.
 - time complexity is $O(nodes . edges)$
+![bellman ford](./images/bellman.gif)
 
 ### Negative Cycle
 
@@ -26,6 +27,7 @@
 - It is **more efficient** because it only processes **each edge in graph once** and can be used for processing large graphs.
 - **graph in adjacency list form will be helpful**, because we will be traversing over edges which are originating from particular node.
 - time complexity is $O(nodes + edges \log{edges})$
+![dijkstra](./images/dijkstra.gif)
 
 ### Floyd-Warshall Algorithm
 

@@ -22,6 +22,8 @@
 - Broadcating in network
 - Ford Fulkerson algo
 
+![bfs](./images/bfs.gif)
+
 ### Depth first traversal (DFS)
 
 **pseudocode**
@@ -42,3 +44,5 @@
 - Path finding
 - Bipartiteness Check
 - solving puzzle with only 1 solution. eg maze
+
+![dfs recursive](./images/dfs-recursion.gif)
