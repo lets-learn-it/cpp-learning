@@ -5,7 +5,10 @@ void print_1toN(int n) {
   // base case
   if (n == 0) return;
 
+  // hypothesis
   print_1toN(n-1);
+
+  // induction
   cout << n << " ";
 }
 

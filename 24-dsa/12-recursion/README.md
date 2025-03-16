@@ -6,6 +6,13 @@
 - Understanding recursion tree is very important. Below is recursion tree of subset problem.
 ![recursion tree for subset](./images/print-all-subsets.png)
 
+## Approaching recursive problem
+
+- Recursive Tree
+- Base condition - Induction - Hypothesis
+  - Base condition - Smallest valid input / largest invalid input
+- Choice diagram
+
 ## References
 
 [[00] Recursion playlist - Aditry Verma](https://www.youtube.com/watch?list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY)

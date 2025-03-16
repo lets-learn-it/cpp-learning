@@ -15,6 +15,22 @@ void preorder_rec(Node* node) {
   }
 }
 
+void preorder_ite(Node* node) {
+  stack<Node*> s;
+
+  s.push(node);
+
+  while(!s.empty()) {
+    Node* n = s.top(); s.pop();
+
+    // push right and then left in stack
+    if(n->right != nullptr) s.push(n->right);
+    if(n->left != nullptr) s.push(n->left);
+
+    printf("%d ", n->data);
+  }
+}
+
 void inorder_rec(Node* node) {
   if (node == nullptr) {
     return;
@@ -22,6 +38,28 @@ void inorder_rec(Node* node) {
     inorder_rec(node->left);
     printf("%d ", node->data);
     inorder_rec(node->right);
+  }
+}
+
+void inorder_ite(Node* root) {
+  stack<Node*> s;
+
+  // push left to stack
+  while(root != nullptr) {
+    s.push(root);
+    root = root->left;
+  }
+
+  while(!s.empty()) {
+    Node* node = s.top(); s.pop();
+    printf("%d ", node->data);
+
+    // push right and all lefties
+    node = node->right;
+    while(node != nullptr) {
+      s.push(node);
+      node = node->left;
+    }
   }
 }
 
@@ -96,12 +134,17 @@ int main(int argc, char const *argv[]) {
     }
   }
 
+  printf("Preorder Recursive: ");
   preorder_rec(root);
-  printf("\n");
+  printf("\nPreorder Iterative: ");
+  preorder_ite(root);
+  printf("\nInorder Recursive: ");
   inorder_rec(root);
-  printf("\n");
+  printf("\nInorder Iterative: ");
+  inorder_ite(root);
+  printf("\nPostorder Recursive: ");
   postorder_rec(root);
-  printf("\n");
+  printf("\nBFS: ");
   bfs(root);
   printf("\n");
   printf("height of tree: %d\n", depth_height(root));
