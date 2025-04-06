@@ -2,6 +2,51 @@
 
 > It is an algorithmic paradigm that solves a given complex problem by breaking it into subproblems and stores the results of subproblems to avoid computing the same results again.
 
+## Problem Types
+
+### 0-1 knapsack
+
+- [0-1 knapsack - gfg](https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1)
+- [494 Target sum - leetcode](https://leetcode.com/problems/target-sum/description/)
+- [416 Partition equal subset sum - leetcode](https://leetcode.com/problems/partition-equal-subset-sum/description/)
+- [subset sum - gfg](https://www.geeksforgeeks.org/problems/perfect-sum-problem5633/1)
+- [diff of subset sum minimum - gfg](https://www.geeksforgeeks.org/problems/minimum-sum-partition3317/1)
+- [subsequences/partitions with given difference - gfg](https://www.geeksforgeeks.org/problems/partitions-with-given-difference/1)
+
+### Unbounded knapsack
+
+- [knapsack with duplicate items - gfg](https://www.geeksforgeeks.org/problems/knapsack-with-duplicate-items4201/1)
+- [322 coin change (fewest number of coins) - leetcode](https://leetcode.com/problems/coin-change/description/)
+- [518 coin change 2 (number of combinations that make up that amount) - leetcode](https://leetcode.com/problems/coin-change-ii/description/)
+- [rod cutting - gfg](https://www.geeksforgeeks.org/problems/rod-cutting0840/1)
+
+### Fibonacci
+
+### Longest common subsequence (LCS)
+
+- [LCS - gfg](https://www.geeksforgeeks.org/problems/longest-common-subsequence-1587115620/1)
+- [LCS - leetcode](https://leetcode.com/problems/longest-common-subsequence/description/)
+- [583 delete ops for two strings to make same - leetcode](https://leetcode.com/problems/delete-operation-for-two-strings/)
+- [72 edit distance (ops:add,del,replace) - leetcode](https://leetcode.com/problems/edit-distance/)
+- [1092 shortest common supersequence - leetcode](https://leetcode.com/problems/shortest-common-supersequence/description/)
+- [516 longest palindromic subsequence - leetcode](https://leetcode.com/problems/longest-palindromic-subsequence/description/)
+
+### Longest increasing subsequence (LIS)
+
+- [length LIS -gfg](https://www.geeksforgeeks.org/problems/longest-increasing-subsequence-1587115620/1)
+- [number of LIS - gfg](https://www.geeksforgeeks.org/problems/number-of-longest-increasing-subsequence/1)
+- [box stacking - gfg](https://www.geeksforgeeks.org/problems/box-stacking/1)
+
+### Kadane's Algorithm
+
+### Matrix chain multiplication
+
+### DP on trees
+
+### DP on grids
+
+### Other
+
 ## Properties of dynamic programming
 
 ### 1. Overlapping Subproblems
@@ -97,3 +142,7 @@ b & !(1 << i)
 // check ith bit is set or not
 b & (1 << i) != 0
 ```
+
+## References
+
+[Dynamic Programming Playlist by Aditya Verma](https://www.youtube.com/playlist?list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go)

@@ -5,14 +5,9 @@ using namespace std;
 #define DEBUG(x) cerr<<">>> "<<#x<<" : "<<x<<endl;
 
 void shortest_path(vector<vector<pair<int, int>>> graph, int nodes, int start) {
-  priority_queue<pair<int, int>> q;
-  int distance[nodes];
-  bool processed[nodes];
-
-  for (int i=0; i<nodes; i++) {
-    distance[i] = INT_MAX;
-    processed[i] = false;
-  }
+  priority_queue<pair<int, int>> q;       // (dist, node)
+  vector<int> distance(nodes, INT_MAX);
+  vector<bool> processed(nodes, false);
 
   distance[start] = 0;
   q.push({0, start});

@@ -89,7 +89,8 @@
     "variant": "cpp",
     "expected": "cpp",
     "spanstream": "cpp",
-    "stacktrace": "cpp"
+    "stacktrace": "cpp",
+    "format": "cpp"
   },
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
@@ -151,6 +152,8 @@
   "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
   "C_Cpp.default.cppStandard": "c++23",
   "C_Cpp.default.includePath": [
-    "/usr/include/c++/12/"
-  ]
+    "/usr/include/c++/13/"
+  ],
+  "C_Cpp.clang_format_fallbackStyle": "Google",
+  "editor.formatOnSave": true
 }
